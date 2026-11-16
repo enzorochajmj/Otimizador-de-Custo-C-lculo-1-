@@ -13,4 +13,4 @@ derivada = sp.diff(funcao, x)
 print("f'(x) = ", derivada)
 
 ponto_critico = sp.solve(derivada, x)
-print("O ponto crítico é:", round(ponto_critico[0], 2))
+print("O ponto crítico é:", round([0], 2))
