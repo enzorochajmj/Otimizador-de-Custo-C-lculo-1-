@@ -21,26 +21,27 @@ else:
     ponto = ponto_critico[0] #caso tenha número, é impresso o primeiro da lista que começa no 0, ex: ponto 20.0
     print("O ponto crítico é:", round(float(ponto), 2)) #imprime o ponto crítico em 2 casas decimais
 
-    segunda_derivada = sp.diff(derivada, x)
-    print("Segunda derivada:", segunda_derivada)
-    if segunda_derivada > 0:
+    segunda_derivada = sp.diff(derivada, x) # Calcula a segunda derivada.
+    print("Segunda derivada:", segunda_derivada) # Exibe a segunda derivada.
+    if segunda_derivada > 0: # Verifica se o ponto é de mínimo.
         print("O ponto crítico é um mínimo.")
-    elif segunda_derivada < 0:
+    elif segunda_derivada < 0: # Verifica se o ponto é de máximo.
         print("O ponto crítico é um máximo.")
 
     
-    custo = funcao.subs(x, ponto)
-    print("Custo correspondente: R$", round(float(custo), 2))
+    custo = funcao.subs(x, ponto) # Calcula o custo no ponto crítico.
+    print("Custo correspondente: R$", round(float(custo), 2)) # Exibe o custo arredondado.
 
     
-    valores_x = np.linspace(0, 40, 400)
-    valores_y = [float(funcao.subs(x, valor)) for valor in valores_x]
+    valores_x = np.linspace(0, 40, 400) # Cria valores para o eixo X.
+    valores_y = [float(funcao.subs(x, valor)) for valor in valores_x] # Calcula os valores do eixo Y.
 
-    plt.plot(valores_x, valores_y)
-    plt.scatter(float(ponto), float(custo), color="red")
 
-    plt.title("Otimizador de Custos")
-    plt.xlabel("Quantidade produzida")
-    plt.ylabel("Custo (R$)")
-    plt.grid()
-    plt.show()
+    plt.plot(valores_x, valores_y) # Desenha a curva da função.
+    plt.scatter(float(ponto), float(custo), color="red") # Marca o ponto crítico em vermelho.
+
+    plt.title("Otimizador de Custos") # Define o título do gráfico.
+    plt.xlabel("Quantidade produzida") # Nomeia o eixo X.
+    plt.ylabel("Custo (R$)") # Nomeia o eixo Y.
+    plt.grid() # Adiciona linhas de grade ao gráfico.
+    plt.show() # Exibe o gráfico.
