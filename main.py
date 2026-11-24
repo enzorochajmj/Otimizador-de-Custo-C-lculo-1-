@@ -1,25 +1,25 @@
-import sympy as sp
-import numpy as np
-import matplotlib.pyplot as plt
+import sympy as sp #biblioteca de derivação 
+import numpy as np #biblioteca de trabalho com números, gera sequências de quantidades
+import matplotlib.pyplot as plt #biblioteca com ferramentas de criação de gráficos
 
-x = sp.symbols("x")
+x = sp.symbols("x") #definir "x" como uma variável 
 
-a = float(input("Digite o valor da variável a:"))
-b = float(input("Digite o valor da variável b: "))
-c = float(input("Digite o valor da variável c: "))
+a = float(input("Digite o valor da variável a:")) #pedido do valor das variáveis
+b = float(input("Digite o valor da variável b: ")) #pedido do valor das variáveis
+c = float(input("Digite o valor da variável c: ")) #pedido do valor das variáveis 
 
-funcao = a*x**2 + b*x + c
-print("f(x) = ", funcao)
+funcao = a*x**2 + b*x + c #função quadrática montada
+print("f(x) = ", funcao) #imprime a função montada no terminal
 
-derivada = sp.diff(funcao, x)
-print("f'(x) = ", derivada)
+derivada = sp.diff(funcao, x) #pedido para sympy derivar função 
+print("f'(x) = ", derivada) #impressao da derivada 
 
-ponto_critico = sp.solve(derivada, x)
-if len(ponto_critico) == 0:
-    print("Não existem pontos críticos.")
+ponto_critico = sp.solve(derivada, x) #resolve a equação e iguala a 0, ex: 2x -40 = 0. resultado em lista, ex [20, 0]
+if len(ponto_critico) == 0: #ler a lista e caso não tenha nenhum número, não tem ponto crítico
+    print("Não existem pontos críticos.") #imprime se for o caso
 else:
-    ponto = ponto_critico[0]
-    print("O ponto crítico é:", round(float(ponto), 2))
+    ponto = ponto_critico[0] #caso tenha número, é impresso o primeiro da lista que começa no 0, ex: ponto 20.0
+    print("O ponto crítico é:", round(float(ponto), 2)) #imprime o ponto crítico em 2 casas decimais
 
     segunda_derivada = sp.diff(derivada, x)
     print("Segunda derivada:", segunda_derivada)
